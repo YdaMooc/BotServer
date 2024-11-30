@@ -153,6 +153,7 @@ async function queryWeather(adcode) {
     });
     if (response.data && response.data.lives && response.data.lives.length > 0) {
       const weatherInfo = response.data.lives[0];
+      console.log('返回：', weatherInfo);
       return `
 当前城市：${weatherInfo.city}
 --------------------------------
@@ -207,6 +208,7 @@ async function queryWeatherForecast(adcode) {
 风        力：白天${cast.daypower}级，夜晚${cast.nightpower}级
 --------------------------------`;
       });
+      console.log('返回：', forecastInfo);
       return forecastText;
     } else {
       return '未能获取天气预报信息，请稍后再试。';
